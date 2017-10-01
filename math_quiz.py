@@ -98,18 +98,18 @@ def generate_problem():
         y = t
 
     ans = TYPES[type][1](x,y)
-    problem = "%2s) %s %s %s = " % (index, x, TYPES[type][2], y)
+    problem = "     %s) %s %s %s = " % (index, x, TYPES[type][2], y)
     index += 1
     a = raw_input(problem)
     if not a.isdigit():
-        print "I/O Error! A number is expected.\n"
+        print "     I/O Error! A number is expected.\n"
         return
     total += 1
     if ans == int(a):
-        print "CORRECT!\n"
+        print "     CORRECT!\n"
         solved += 1 
     else:
-        print "WRONG! The correct answer is %s.\n" % ans
+        print "     WRONG! The correct answer is %s.\n" % ans
         error += 1
 
 
