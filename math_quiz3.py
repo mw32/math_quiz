@@ -66,7 +66,7 @@ def get_input_params():
     global type, max_int, max_time
     type_prompt = "Select exercise type %s : "
     int_prompt = "\nEnter the max round (integer) number to be used : "
-    time_prompt = "\nEnter the max time (minutes) for the exercise: "
+    time_prompt = "\nEnter the max time (minutes) for the exercise : "
     print("\nMathQuiz Algebra Exercise\n")
     while type not in ['1', '2', '3', '4']:
         print("\nExercise types:")
@@ -99,18 +99,20 @@ def generate_problem():
     ans = TYPES[type][1](x,y)
     problem = "     %s) %s %s %s = " % (index, x, TYPES[type][2], y)
     index += 1
+    t0 = time.time()
     a = input(problem).strip()
     while not a.isdigit():
         a = input(problem).strip()
     # if not a.isdigit():
     #     print("     I/O Error! A number is expected.\n")
     #     return
+    t1 = time.time() - t0
     total += 1
     if ans == int(a):
-        print("     CORRECT!\n")
+        print("     CORRECT!  ({0:.2f} s)\n".format(t1))
         solved += 1
     else:
-        print("     WRONG! The correct answer is %s.\n" % ans)
+        print("     WRONG! The correct answer is {0}.  ({1:.2f} s)\n".format (ans, t1))
         error += 1
 
 
