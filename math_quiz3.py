@@ -99,10 +99,12 @@ def generate_problem():
     ans = TYPES[type][1](x,y)
     problem = "     %s) %s %s %s = " % (index, x, TYPES[type][2], y)
     index += 1
-    a = input(problem)
-    if not a.isdigit():
-        print("     I/O Error! A number is expected.\n")
-        return
+    a = input(problem).strip()
+    while not a.isdigit():
+        a = input(problem).strip()
+    # if not a.isdigit():
+    #     print("     I/O Error! A number is expected.\n")
+    #     return
     total += 1
     if ans == int(a):
         print("     CORRECT!\n")
